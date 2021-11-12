@@ -82,7 +82,7 @@ Resources:
       Stages:
         - Name: Source
           Actions:
-            - Name: 
+            - Name: Source
               InputArtifacts: []
               ActionTypeId:
                 Category: Source
@@ -90,15 +90,15 @@ Resources:
                 Provider: GitHub
                 Version: 1
               Configuration:
-                Owner: !Ref GitHubOwner,
-                Repo: !Ref GitHubRepo,
-                Branch: !Ref GitHubBranch,
-                OAuthToken: !Ref GitHubOAuthToken,
-                PollForSourceChanges: 
+                Owner: !Ref GitHubOwner
+                Repo: !Ref GitHubRepo
+                Branch: !Ref GitHubBranch
+                OAuthToken: !Ref GitHubOAuthToken
+                PollForSourceChanges: false
               RunOrder: 1
               OutputArtifacts:
                 - Name: 'voice-controlled-app'
-              Region: us-west-2
+
         - Name: Deploy 
           Actions: 
             - Name: Deploy
@@ -113,5 +113,5 @@ Resources:
               }
               InputArtifacts: 
                 - Name: 'voice-controlled-app'
-              Region: us-west-2
+
 
